@@ -1,5 +1,9 @@
+// pages/equipment.tsx
+
 import Head from 'next/head'
+import { Client } from '@notionhq/client'
 import ProPlayerCard from '@/components/EquipmentCard'
+
 export interface Device {
   name: string
   category: string
@@ -12,57 +16,60 @@ interface Props {
   devices: Device[]
 }
 
-export async function getStaticProps() {
-  const notionTableId = '20d3a17d-9c21-80bf-a88b-caf5d21c739b'
-  const res = await fetch(`https://notion-api.splitbee.io/v1/table/${notionTableId}`)
-  const raw = await res.json()
-  console.log('第一条记录的 raw 数据：', JSON.stringify(raw[0], null, 2))
+// 初始化 Notion 客户端
+const notion = new Client({ auth: process.env.NOTION_TOKEN })
 
-  const devices: Device[] = raw.map((item: any) => {
-    // cover 字段解析，兼容 external 和 file 类型
-    let cover = ''
-    const cov = item.Cover?.[0]
-    if (cov) {
-      if (cov.external?.url) cover = cov.external.url
-      else if (cov.file?.url) cover = cov.file.url
-    }
-    // 描述等字段按标准方式解析
+export async function getStaticProps() {
+  const databaseId = process.env.NOTION_DATABASE_ID as string
+  const res = await notion.databases.query({
+    database_id: databaseId,
+    page_size: 100,
+  })
+
+  const devices: Device[] = res.results.map((item: any) => {
+    const props = item.properties
+    const coverFile = props.Cover?.files?.[0]
+    const coverUrl =
+      coverFile?.file?.url || coverFile?.external?.url || ''
+
     return {
-      name: item.Name?.[0]?.plain_text || '',
-      category: item.Category?.[0]?.name || '',
-      cover: cover || '/default-device.jpg', // 可以设定一个默认图
-      description: item.Description?.[0]?.plain_text || '',
-      link: item.Link?.[0]?.plain_text || ''
+      name: props.Name?.title?.[0]?.plain_text || '',
+      category: props.Category?.select?.name || '',
+      cover: coverUrl,
+      description: props.Description?.rich_text?.[0]?.plain_text || '',
+      link: props.Link?.url || '',
     }
   })
 
-  return { props: { devices }, revalidate: 3600 }
+  return {
+    props: { devices },
+    revalidate: 3600,
+  }
 }
 
+export default function EquipmentPage({ devices }: Props) {
+  const categories = ['生产力', '家庭娱乐', '出行', '健康生活']
 
-export default function EquipmentCard({ device }: { device: Device }) {
   return (
-    <div className="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-4">
-      <img
-        src={device.cover}
-        alt={device.name}
-        className="w-full h-40 object-cover rounded-lg mb-3"
-      />
-      <h3 className="text-lg font-bold mb-1">{device.name}</h3>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-        {device.description}
-      </p>
-      {device.link && (
-        <a
-          href={device.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 hover:underline text-sm"
-        >
-          查看详情 →
-        </a>
-      )}
-    </div>
+    <>
+      <Head><title>我的设备 & 工具</title></Head>
+      <main className="max-w-5xl mx-auto px-4 py-10">
+        <h1 className="text-3xl font-bold mb-8">🧩 我的设备 & 工具清单</h1>
+        {categories.map(cat => {
+          const list = devices.filter(d => d.category === cat)
+          if (list.length === 0) return null
+          return (
+            <section key={cat} className="mb-12">
+              <h2 className="text-2xl font-semibold mb-4">{cat}</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {list.map((item, idx) => (
+                  <ProPlayerCard key={idx} device={item} />
+                ))}
+              </div>
+            </section>
+          )
+        })}
+      </main>
+    </>
   )
 }
-

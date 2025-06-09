@@ -9,3 +9,10 @@ export interface Player {
   monitor: string
   headset: string
 }
+export interface Device {
+  name: string
+  category: string
+  cover: string
+  description: string
+  link?: string
+}

@@ -1,5 +1,16 @@
 import Head from 'next/head'
 import ProPlayerCard from '@/components/EquipmentCard'
+export interface Device {
+  name: string
+  category: string
+  cover: string
+  description: string
+  link?: string
+}
+
+interface Props {
+  devices: Device[]
+}
 
 export async function getStaticProps() {
   const notionTableId = '20d3a17d9c2180a1916dfc61d8264456'

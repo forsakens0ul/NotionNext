@@ -40,29 +40,29 @@ export async function getStaticProps() {
 }
 
 
-export default function EquipmentPage({ devices }: { devices: Device[] }) {
-  const categories = ['生产力', '家庭娱乐', '出行', '健康生活']
-
+export default function EquipmentCard({ device }: { device: Device }) {
   return (
-    <>
-      <Head><title>我的设备 & 工具</title></Head>
-      <main className="max-w-5xl mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold mb-8">🧩 我的设备 & 工具清单</h1>
-        {categories.map(cat => {
-          const list = devices.filter(d => d.category === cat)
-          if (list.length === 0) return null
-          return (
-            <section key={cat} className="mb-12">
-              <h2 className="text-2xl font-semibold mb-4">{cat}</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {list.map((item, idx) => (
-                  <ProPlayerCard key={idx} device={item} />
-                ))}
-              </div>
-            </section>
-          )
-        })}
-      </main>
-    </>
+    <div className="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-4">
+      <img
+        src={device.cover}
+        alt={device.name}
+        className="w-full h-40 object-cover rounded-lg mb-3"
+      />
+      <h3 className="text-lg font-bold mb-1">{device.name}</h3>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+        {device.description}
+      </p>
+      {device.link && (
+        <a
+          href={device.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline text-sm"
+        >
+          查看详情 →
+        </a>
+      )}
+    </div>
   )
 }
+

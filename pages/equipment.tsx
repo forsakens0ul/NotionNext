@@ -2,7 +2,7 @@ import Head from 'next/head'
 import ProPlayerCard from '@/components/EquipmentCard'
 
 export async function getStaticProps() {
-  const notionTableId = '你的Notion页面ID'
+  const notionTableId = '20d3a17d9c2180a1916dfc61d8264456'
   const res = await fetch(`https://notion-api.splitbee.io/v1/table/${notionTableId}`)
   const raw = await res.json()
 

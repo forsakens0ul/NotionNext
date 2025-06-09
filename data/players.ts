@@ -11,7 +11,7 @@ const players: Player[] = [
     monitor: "Zowie XL2546K",
     headset: "HyperX Cloud II"
   },
-  ...
+ 
 ]
 
 export default players

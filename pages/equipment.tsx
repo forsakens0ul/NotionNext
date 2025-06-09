@@ -28,7 +28,7 @@ export async function getStaticProps() {
   return { props: { devices }, revalidate: 3600 }
 }
 
-export default function EquipmentPage({ devices }) {
+export default function EquipmentPage({ devices }: { devices: Device[] }) {
   const categories = ['生产力', '家庭娱乐', '出行', '健康生活']
 
   return (

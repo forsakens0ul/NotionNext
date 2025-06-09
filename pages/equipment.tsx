@@ -13,7 +13,7 @@ interface Props {
 }
 
 export async function getStaticProps() {
-  const notionTableId = '20d3a17d9c2180a1916dfc61d8264456'
+  const notionTableId = '20d3a17d9c21805e85ef000c5e06ae40'
   const res = await fetch(`https://notion-api.splitbee.io/v1/table/${notionTableId}`)
   const raw = await res.json()
 

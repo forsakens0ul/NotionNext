@@ -1,4 +1,10 @@
-export default function ProPlayerCard({ player }) {
+import { Player } from '@/types'
+
+interface Props {
+  player: Player
+}
+
+export default function ProPlayerCard({ player }: Props) {
   return (
     <div className="bg-white dark:bg-gray-800 shadow-md rounded-2xl p-4 w-full max-w-sm mx-auto">
       <div className="flex items-center space-x-4">

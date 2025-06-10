@@ -43,7 +43,8 @@ const Style = () => {
       .scroll-hidden::-webkit-scrollbar {
         display: none;
       }
-      // 背景图片下移动画
+
+      
       @keyframes slideDown {
         from {
           transform: translateY(0);
@@ -55,16 +56,11 @@ const Style = () => {
         }
       }
 
-      // 当hover时应用动画
       .slideDown-animation {
         animation: slideDown 0.6s ease-out forwards;
       }
 
-      .recent-top-post-group::-webkit-scrollbar,
-      .scroll-hidden::-webkit-scrollbar {
-        display: none;
-      }
-      
+    
 
       * {
         box-sizing: border-box;

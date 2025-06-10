@@ -19,10 +19,10 @@ export default function TouchMeCard() {
           <div className='h-full relative'>
             {/* 主标题 + 右上角小字 */}
             <div className='flex justify-between items-start'>
-              <h2 className='font-[1000] text-3xl'>
+              <h2 className='font-[1000] text-3xl mb-2'>
                 {siteConfig('HEO_SOCIAL_CARD_TITLE_1', null, CONFIG)}
               </h2>
-              <span className='bg-white text-[#1AAD19] text-2xl px-2 py-1  rounded ml-2'>
+              <span className='bg-white text-[#1AAD19] text-lg px-2 py-1 rounded ml-2'>
                 {siteConfig('HEO_SOCIAL_CARD_TITLE_4', null, CONFIG)}
               </span>
             </div>
@@ -39,7 +39,7 @@ export default function TouchMeCard() {
           </div>
         }
         backContent={
-          <Link href={siteConfig('HEO_SOCIAL_CARD_URL', null, CONFIG)}>
+           <Link href={siteConfig('HEO_SOCIAL_CARD_URL', null, CONFIG)}>
             <div className='font-[1000] text-xl h-full flex flex-col justify-center'>
               {/* 新增标题5（与标题1同字号） */}
               <h2 className='text-3xl mb-2'>
@@ -47,7 +47,7 @@ export default function TouchMeCard() {
               </h2>
               {/* 原标题3 + 右侧方形图片 */}
               <div className='flex items-center'>
-                <div className='flex-1'>
+                <div className='flex-1 text-lg'>
                   {siteConfig('HEO_SOCIAL_CARD_TITLE_3', null, CONFIG)}
                 </div>
                 <img 

@@ -33,8 +33,7 @@ export default function TouchMeCard() {
             <div
               className='absolute left-0 top-0 w-full h-full opacity-20'
               style={{
-                background:
-                  'url(https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.png) center center no-repeat',
+                background: 'url(./wechatbg.png) center center no-repeat',
                 backgroundSize: 'cover'
               }}></div>
           </div>
@@ -46,10 +45,10 @@ export default function TouchMeCard() {
               <h2 className='text-3xl mb-2'>
                 {siteConfig('HEO_SOCIAL_CARD_TITLE_5', null, CONFIG)}
               </h2>
-              {/* 原标题3 */}
-              <div>
-                {siteConfig('HEO_SOCIAL_CARD_TITLE_3', null, CONFIG)}
-              </div>
+              {/* 原标题3 + 右侧方形图片 */}
+              <div className='flex items-center'>
+                <div className='flex-1'>
+                  {siteConfig('HEO_SOCIAL_CARD_TITLE_3', null, CONFIG)}
                 </div>
                 <img 
                   src="./wechat.png" 

@@ -31,35 +31,37 @@ export default function TouchMeCard() {
                             {siteConfig('HEO_SOCIAL_CARD_TITLE_2', CONFIG)}
                         </h3>
                         {/* 微信公众号风格背景图 */}
-                        <div className="absolute bottom-2 right-2 opacity-30 blur-sm">
-                            <img
-                                src="https://raw.githubusercontent.com/forsakens0ul/image/refs/heads/main/wechatbg.png" // 你需要准备这张图
-                                alt="wechat background"
-                                className="w-16 h-16"
-                            />
+                        
+                         <div className="w-20 h-20 object-contain opacity-20">
+                          <img
+                            src="https://raw.githubusercontent.com/forsakens0ul/image/refs/heads/main/wechatbg.png"
+                            alt="wechat background"
+                            className="w-24 h-24 object-contain max-w-[50%]"
+                          />
                         </div>
                     </div>
                 }
 
                 backContent={
-                    <Link href={siteConfig('HEO_SOCIAL_CARD_URL', null, CONFIG)}>
-                        <div className='h-full flex items-center'>
-                            {/* 左侧文字部分 */}
-                            <div className='mr-4'>
-                                <h2 className='text-3xl mb-2 font-bold'>
-                                    {siteConfig('HEO_SOCIAL_CARD_TITLE_5', CONFIG)}
-                                </h2>
-                                <div className='flex items-center'>
-                                    <span>{siteConfig('HEO_SOCIAL_CARD_TITLE_3', CONFIG)}</span>
-                                </div>
-                            </div>
-                            {/* 右侧二维码部分 */}
-                            <img
-                                src="https://raw.githubusercontent.com/forsakens0ul/image/refs/heads/main/wechatQR.jpg"
-                                alt="QR Code"
-                                className='w-16 h-16 rounded'
-                            />
+                                       <Link href={siteConfig('HEO_SOCIAL_CARD_URL', null, CONFIG)}>
+                      <div className='h-full w-full flex items-center justify-between px-4 py-2'>
+                        {/* 左侧：文字区域 */}
+                        <div>
+                          <h2 className='text-2xl font-bold mb-1'>
+                            {siteConfig('HEO_SOCIAL_CARD_TITLE_5', CONFIG)}
+                          </h2>
+                          <p className='text-base'>
+                            {siteConfig('HEO_SOCIAL_CARD_TITLE_3', CONFIG)}
+                          </p>
                         </div>
+                    
+                        {/* 右侧：二维码 */}
+                        <img
+                          src="https://raw.githubusercontent.com/forsakens0ul/image/refs/heads/main/wechatQR.jpg"
+                          alt="QR Code"
+                          className='w-16 h-16 rounded object-cover'
+                        />
+                      </div>
                     </Link>
                 }
             />

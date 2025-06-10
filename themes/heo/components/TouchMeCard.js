@@ -30,14 +30,21 @@ export default function TouchMeCard() {
               {siteConfig('HEO_SOCIAL_CARD_TITLE_2', CONFIG)}
               
             </h3>
-            {/* 微信公众号风格背景图 */}
+            {/* 背景图 - 只显示右 1/3 */}
             <div
-              className='absolute left-0 top-0 w-full h-full opacity-20'
+              className={`absolute left-0 top-0 w-full h-full ${
+                isHovered ? 'slide-down-animation' : ''
+              }`}
               style={{
-                background:
-                  'url(https://raw.githubusercontent.com/forsakens0ul/image/refs/heads/main/wechatbg.png) center center no-repeat',
-                backgroundSize: 'cover'
-              }}></div>
+                backgroundImage:
+                  'url(https://raw.githubusercontent.com/forsakens0ul/image/refs/heads/main/wechatbg.png)',
+                backgroundPosition: '-200% center',
+                backgroundSize: '300% 100%',
+                backgroundRepeat: 'no-repeat',
+                opacity: isHovered ? 0 : 0.2,
+                transition: 'opacity 0.6s ease-out'
+              }}
+            ></div>
           </div>
         }
         backContent= {

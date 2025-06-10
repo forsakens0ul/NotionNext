@@ -18,38 +18,46 @@ export default function TouchMeCard() {
         frontContent={
           <div className='h-full relative'>
             {/* 主标题 + 右上角小字 */}
-            <div className='flex justify-between items-start'>
+            <div className='flex justify-between items-center'>
               <h2 className='font-[1000] text-3xl'>
-                {siteConfig('HEO_SOCIAL_CARD_TITLE_1', null, CONFIG)}
+                {siteConfig('HEO_SOCIAL_CARD_TITLE_1', CONFIG)}
               </h2>
               <span className='bg-white text-[#1AAD19] text-2xl px-2 py-1 rounded ml-2'>
-                {siteConfig('HEO_SOCIAL_CARD_TITLE_4', null, CONFIG)}
+                {siteConfig('HEO_SOCIAL_CARD_TITLE_4', CONFIG)}
               </span>
             </div>
-            <h3 className='pt-2'>
-              {siteConfig('HEO_SOCIAL_CARD_TITLE_2', null, CONFIG)}
+            <h3 className='pt-2 flex items-center'>
+              {siteConfig('HEO_SOCIAL_CARD_TITLE_2', CONFIG)}
+              
             </h3>
             {/* 微信公众号风格背景图 */}
             <div
               className='absolute left-0 top-0 w-full h-full opacity-20'
               style={{
                 background:
-                  'url(https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.png) center center no-repeat',
+                  'url(https://github.com/forsakens0ul/image/blob/main/wechatbg.png) center center no-repeat',
                 backgroundSize: 'cover'
               }}></div>
           </div>
         }
-        backContent={
+        backContent= {
           <Link href={siteConfig('HEO_SOCIAL_CARD_URL', null, CONFIG)}>
-            <div className='font-[1000] text-xl h-full flex flex-col justify-center'>
-              {/* 新增标题5（与标题1同字号） */}
-              <h2 className='text-3xl mb-2'>
-                {siteConfig('HEO_SOCIAL_CARD_TITLE_5', null, CONFIG)}
-              </h2>
-              {/* 原标题3 */}
-              <div>
-                {siteConfig('HEO_SOCIAL_CARD_TITLE_3', null, CONFIG)}
+            <div className='h-full flex items-center'>
+              {/* 左侧文字部分 */}
+              <div className='mr-4'>
+                <h2 className='text-3xl mb-2 font-bold'>
+                  {siteConfig('HEO_SOCIAL_CARD_TITLE_5', CONFIG)}
+                </h2>
+                <div className='flex items-center'>
+                  <span>{siteConfig('HEO_SOCIAL_CARD_TITLE_3',CONFIG)}</span>
+                </div>
               </div>
+              {/* 右侧二维码部分 */}
+              <img 
+                src="https://github.com/forsakens0ul/image/blob/main/wechatQR.jpg"
+                alt="QR Code"
+                className='w-16 h-16 rounded'
+              />
             </div>
           </Link>
         }

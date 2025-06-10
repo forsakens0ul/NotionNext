@@ -35,7 +35,7 @@ export default function TouchMeCard() {
               className='absolute left-0 top-0 w-full h-full opacity-20'
               style={{
                 background:
-                  'url(https://github.com/forsakens0ul/image/blob/main/wechatbg.png) center center no-repeat',
+                  'url(https://raw.githubusercontent.com/forsakens0ul/image/refs/heads/main/wechatbg.png) center center no-repeat',
                 backgroundSize: 'cover'
               }}></div>
           </div>
@@ -54,7 +54,7 @@ export default function TouchMeCard() {
               </div>
               {/* 右侧二维码部分 */}
               <img 
-                src="https://github.com/forsakens0ul/image/blob/main/wechatQR.jpg"
+                src="https://raw.githubusercontent.com/forsakens0ul/image/refs/heads/main/wechatQR.jpg"
                 alt="QR Code"
                 className='w-16 h-16 rounded'
               />

@@ -8,9 +8,10 @@ import CONFIG from '../config'
  * @returns
  */
 export default function TouchMeCard() {
-  if (!JSON.parse(siteConfig('HEO_SOCIAL_CARD', null, CONFIG))) {
-    return <></>
-  }
+ const [isHovered, setIsHovered] = useState(false);
+  const isSocialCardEnabled = JSON.parse(siteConfig('HEO_SOCIAL_CARD', null, CONFIG));
+
+  if (!isSocialCardEnabled) return <></>;
   return (
     <div className={'relative h-28 text-white flex flex-col'}>
       <FlipCard

@@ -26,7 +26,6 @@ export default function TouchMeCard() {
                                 {siteConfig('HEO_SOCIAL_CARD_TITLE_4', CONFIG)}
                             </span>
                         </div>
-
                         {/* 副标题 */}
                         <h3 className="pt-2 text-lg font-medium">
                             {siteConfig('HEO_SOCIAL_CARD_TITLE_2', CONFIG)}
@@ -34,7 +33,7 @@ export default function TouchMeCard() {
                         {/* 微信公众号风格背景图 */}
                         <div className="absolute bottom-2 right-2 opacity-30 blur-sm">
                             <img
-                                src="/wechat-icon.png" // 你需要准备这张图
+                                src="https://raw.githubusercontent.com/forsakens0ul/image/refs/heads/main/wechatbg.png" // 你需要准备这张图
                                 alt="wechat background"
                                 className="w-16 h-16"
                             />
@@ -56,7 +55,7 @@ export default function TouchMeCard() {
                             </div>
                             {/* 右侧二维码部分 */}
                             <img
-                                src="https://github.com/forsakens0ul/image/blob/main/wechatQR.jpg"
+                                src="https://raw.githubusercontent.com/forsakens0ul/image/refs/heads/main/wechatQR.jpg"
                                 alt="QR Code"
                                 className='w-16 h-16 rounded'
                             />

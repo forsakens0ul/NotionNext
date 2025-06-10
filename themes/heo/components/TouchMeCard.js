@@ -22,7 +22,7 @@ export default function TouchMeCard() {
               <h2 className='font-[1000] text-3xl'>
                 {siteConfig('HEO_SOCIAL_CARD_TITLE_1', null, CONFIG)}
               </h2>
-              <span className='bg-white text-[#1AAD19] text-xs px-2 py-1 rounded ml-2'>
+              <span className='bg-white text-[#1AAD19] text-2xl px-2 py-1  rounded ml-2'>
                 {siteConfig('HEO_SOCIAL_CARD_TITLE_4', null, CONFIG)}
               </span>
             </div>
@@ -49,6 +49,13 @@ export default function TouchMeCard() {
               {/* 原标题3 */}
               <div>
                 {siteConfig('HEO_SOCIAL_CARD_TITLE_3', null, CONFIG)}
+              </div>
+                </div>
+                <img 
+                  src="./wechat.png" 
+                  alt="WeChat" 
+                  className='w-12 h-12 ml-2 rounded-sm border border-white'
+                />
               </div>
             </div>
           </Link>

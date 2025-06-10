@@ -16,7 +16,7 @@ export default function TouchMeCard() {
             <FlipCard
                 className='cursor-pointer lg:p-6 p-4 border rounded-xl bg-[#1AAD19] dark:bg-[#1AAD19] dark:border-gray-600'
                 frontContent={
-                    <div className="relative bg-[#1AAD19] rounded-2xl text-white p-6 w-full h-32 overflow-hidden">
+                    <div >
                         {/* 主标题和右上角标签 */}
                         <div className="flex justify-between items-start">
                             <h2 className="text-3xl font-extrabold leading-none">

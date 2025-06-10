@@ -19,10 +19,10 @@ export default function TouchMeCard() {
           <div className='h-full relative'>
             {/* 主标题 + 右上角小字 */}
             <div className='flex justify-between items-start'>
-              <h2 className='font-[1000] text-3xl mb-2'>
+              <h2 className='font-[1000] text-3xl'>
                 {siteConfig('HEO_SOCIAL_CARD_TITLE_1', null, CONFIG)}
               </h2>
-              <span className='bg-white text-[#1AAD19] text-lg px-2 py-1 rounded ml-2'>
+              <span className='bg-white text-[#1AAD19] text-2xl px-2 py-1 rounded ml-2'>
                 {siteConfig('HEO_SOCIAL_CARD_TITLE_4', null, CONFIG)}
               </span>
             </div>
@@ -33,28 +33,22 @@ export default function TouchMeCard() {
             <div
               className='absolute left-0 top-0 w-full h-full opacity-20'
               style={{
-                background: 'url(./wechatbg.png) center center no-repeat',
+                background:
+                  'url(https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.png) center center no-repeat',
                 backgroundSize: 'cover'
               }}></div>
           </div>
         }
         backContent={
-           <Link href={siteConfig('HEO_SOCIAL_CARD_URL', null, CONFIG)}>
+          <Link href={siteConfig('HEO_SOCIAL_CARD_URL', null, CONFIG)}>
             <div className='font-[1000] text-xl h-full flex flex-col justify-center'>
               {/* 新增标题5（与标题1同字号） */}
               <h2 className='text-3xl mb-2'>
                 {siteConfig('HEO_SOCIAL_CARD_TITLE_5', null, CONFIG)}
               </h2>
-              {/* 原标题3 + 右侧方形图片 */}
-              <div className='flex items-center'>
-                <div className='flex-1 text-lg'>
-                  {siteConfig('HEO_SOCIAL_CARD_TITLE_3', null, CONFIG)}
-                </div>
-                <img 
-                  src="./wechat.png" 
-                  alt="WeChat" 
-                  className='w-12 h-12 ml-2 rounded-sm border border-white'
-                />
+              {/* 原标题3 */}
+              <div>
+                {siteConfig('HEO_SOCIAL_CARD_TITLE_3', null, CONFIG)}
               </div>
             </div>
           </Link>
